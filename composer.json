@@ -1,0 +1,45 @@
+{
+    "name": "billmn/craft-turnstile",
+    "description": "Protect your forms with Cloudflare Turnstile.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "turnstile"
+    ],
+    "support": {
+        "docs": "https://github.com/billmn/craft-turnstile/blob/master/README.md",
+        "issues": "https://github.com/billmn/craft-turnstile/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Davide Bellini",
+            "homepage": "https://github.com/billmn"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "require-dev": {
+      "craftcms/cms": "^3.2.0",
+      "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "billmn\\turnstile\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Turnstile",
+        "handle": "turnstile",
+        "developer": "Davide Bellini",
+        "developerUrl": "https://github.com/billmn",
+        "documentationUrl": "https://github.com/billmn/craft-turnstile/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/billmn/craft-turnstile/master/CHANGELOG.md",
+        "class": "billmn\\turnstile\\Turnstile"
+    }
+}
