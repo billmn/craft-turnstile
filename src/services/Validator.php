@@ -7,7 +7,6 @@ use Craft;
 use craft\helpers\Json;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
-use Psr\Http\Message\ResponseInterface;
 use yii\base\Component;
 
 /**
@@ -30,9 +29,9 @@ class Validator extends Component
     /**
      * Call endpoint to validate widget response.
      *
-     * @return ReponseInterface
+     * @return \Psr\Http\Message\ResponseInterface
      */
-    protected function sendRequest(): ResponseInterface
+    protected function sendRequest(): \Psr\Http\Message\ResponseInterface
     {
         $request = Craft::$app->getRequest();
         $turnstileResponse = $request->getParam('cf-turnstile-response');
