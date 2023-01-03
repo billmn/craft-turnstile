@@ -69,11 +69,11 @@ class Validator extends Component
                 return false;
             }
         } catch (ConnectException $e) {
-            Craft::error($e->getMessage(), __METHOD__);
-
             if (Craft::$app->config->general->devMode) {
                 throw $e;
             }
+
+            Craft::error($e->getMessage(), __METHOD__);
         }
 
         return false;
