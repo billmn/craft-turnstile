@@ -44,7 +44,7 @@ class Validator extends Component
                 'secret' => $settings->getSecretKey(),
                 'remoteip' => $request->getUserIP(),
                 'response' => $turnstileResponse,
-            ]
+            ],
         ]);
     }
 
@@ -69,7 +69,6 @@ class Validator extends Component
 
                 return false;
             }
-
         } catch (ConnectException $e) {
             Craft::error($e->getMessage(), __METHOD__);
 

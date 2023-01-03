@@ -2,12 +2,12 @@
 
 namespace billmn\turnstile;
 
-use Craft;
 use billmn\turnstile\models\Settings;
 use billmn\turnstile\services\TurnstileService;
 use billmn\turnstile\services\Validator;
 use billmn\turnstile\services\Widget;
 use billmn\turnstile\variables\TurnstileVariable;
+use Craft;
 use craft\base\Model;
 use craft\base\Plugin;
 use craft\web\twig\variables\CraftVariable;
@@ -68,7 +68,7 @@ class Turnstile extends Plugin
         Event::on(
             CraftVariable::class,
             CraftVariable::EVENT_INIT,
-            function (Event $event) {
+            function(Event $event) {
                 $event->sender->set('turnstile', TurnstileVariable::class);
             }
         );

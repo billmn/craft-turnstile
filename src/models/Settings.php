@@ -2,7 +2,6 @@
 
 namespace billmn\turnstile\models;
 
-use Craft;
 use craft\base\Model;
 use craft\behaviors\EnvAttributeParserBehavior;
 use craft\helpers\App;
