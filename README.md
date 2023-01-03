@@ -1,43 +1,30 @@
-# Turnstile plugin for Craft CMS 3.x
+# Turnstile
 
 Integrate Cloudflare Turnstile captcha alternative to validate your forms.
 
-![Screenshot](resources/img/plugin-logo.png)
-
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0 or later.
+This plugin requires Craft CMS 4.3.5 or later, and PHP 8.0.2 or later.
 
 ## Installation
 
-To install the plugin, follow these instructions.
+You can install this plugin from the Plugin Store or with Composer.
 
-1. Open your terminal and go to your Craft project:
+#### From the Plugin Store
 
-        cd /path/to/project
+Go to the Plugin Store in your project’s Control Panel and search for “Turnstile”. Then press “Install”.
 
-2. Then tell Composer to load the plugin:
+#### With Composer
 
-        composer require billmn/craft-turnstile
+Open your terminal and run the following commands:
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Turnstile.
+```bash
+# go to the project directory
+cd /path/to/my-project.test
 
-## Turnstile Overview
+# tell Composer to load the plugin
+composer require billmn/craft-turnstile
 
--Insert text here-
-
-## Configuring Turnstile
-
--Insert text here-
-
-## Using Turnstile
-
--Insert text here-
-
-## Turnstile Roadmap
-
-Some things to do, and ideas for potential features:
-
-* Release it
-
-Brought to you by [Davide Bellini](https://github.com/billmn)
+# tell Craft to install the plugin
+./craft plugin/install turnstile
+```

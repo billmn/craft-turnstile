@@ -1,0 +1,34 @@
+{# @var plugin \billmn\turnstile\Turnstile #}
+{# @var settings \billmn\turnstile\models\Settings #}
+
+{% import '_includes/forms.twig' as forms %}
+
+{{ forms.autosuggestField({
+    name: 'siteKey',
+    label: 'Site Key'|t('plugin-handle'),
+    value: settings.siteKey,
+    errors: settings.getErrors('siteKey'),
+    required: true,
+    instructions: 'Enter Cloudflare Turnstile Site Key here.',
+    suggestEnvVars: true,
+    first: true,
+}) }}
+
+{{ forms.autosuggestField({
+    name: 'secretKey',
+    label: 'Secret Key'|t('plugin-handle'),
+    value: settings.secretKey,
+    errors: settings.getErrors('secretKey'),
+    required: true,
+    instructions: 'Enter Cloudflare Turnstile Secret Key here.',
+    suggestEnvVars: true,
+}) }}
+
+<hr>
+
+{{ forms.lightswitchField({
+    on: settings.protectContactForm,
+    name: 'protectContactForm',
+    label: 'Protect Contact Form submissions.',
+    instructions: 'Enable automatic protection to contact form submissions using the [Contact Form plugin](https://github.com/craftcms/contact-form).',
+}) }}

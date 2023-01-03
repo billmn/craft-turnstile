@@ -1,45 +1,48 @@
 {
     "name": "billmn/craft-turnstile",
-    "description": "Protect your forms with Cloudflare Turnstile.",
+    "description": "Integrate Cloudflare Turnstile captcha alternative to validate your forms.",
     "type": "craft-plugin",
-    "version": "1.0.0",
-    "keywords": [
-        "craft",
-        "cms",
-        "craftcms",
-        "craft-plugin",
-        "turnstile"
-    ],
+    "license": "mit",
     "support": {
-        "docs": "https://github.com/billmn/craft-turnstile/blob/master/README.md",
-        "issues": "https://github.com/billmn/craft-turnstile/issues"
+        "email": "bellini.davide@gmail.com",
+        "issues": "https://github.com/billmn/craft-turnstile/issues?state=open",
+        "source": "https://github.com/billmn/craft-turnstile",
+        "docs": "https://github.com/billmn/craft-turnstile",
+        "rss": "https://github.com/billmn/craft-turnstile/releases.atom"
     },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Davide Bellini",
-            "homepage": "https://github.com/billmn"
-        }
-    ],
     "require": {
-        "craftcms/cms": "^3.0.0"
+        "php": ">=8.0.2",
+        "craftcms/cms": "^4.3.5"
     },
     "require-dev": {
-      "craftcms/cms": "^3.2.0",
-      "vlucas/phpdotenv": "^3.0"
+        "craftcms/ecs": "dev-main",
+        "craftcms/phpstan": "dev-main"
     },
     "autoload": {
         "psr-4": {
-          "billmn\\turnstile\\": "src/"
+            "billmn\\turnstile\\": "src/"
         }
     },
     "extra": {
-        "name": "Turnstile",
         "handle": "turnstile",
+        "name": "Cloudflare Turnstile",
         "developer": "Davide Bellini",
-        "developerUrl": "https://github.com/billmn",
-        "documentationUrl": "https://github.com/billmn/craft-turnstile/blob/master/README.md",
-        "changelogUrl": "https://raw.githubusercontent.com/billmn/craft-turnstile/master/CHANGELOG.md",
+        "documentationUrl": "https://github.com/billmn/craft-turnstile",
         "class": "billmn\\turnstile\\Turnstile"
+    },
+    "scripts": {
+        "check-cs": "ecs check --ansi",
+        "fix-cs": "ecs check --ansi --fix",
+        "phpstan": "phpstan --memory-limit=1G"
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "8.0.2"
+        },
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
     }
 }

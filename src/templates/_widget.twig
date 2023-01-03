@@ -1,0 +1,7 @@
+<div {{ attr(attributes) }}></div>
+
+{% if sprig.isRequest() ?? false %}
+    <script>
+        renderTurnstile('{{ attributes.id }}')
+    </script>
+{% endif %}
