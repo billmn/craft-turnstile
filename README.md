@@ -1,4 +1,4 @@
-<p align="center"><img width="100" src="https://raw.githubusercontent.com/billmn/craft-turnstile/a4cbd7975f2cf5abca6014c7ff28a1fedb195376/src/icon.svg"></p>
+<p align="center"><img width="100" src="./src/icon.svg"></p>
 
 # Cloudflare Turnstile
 
