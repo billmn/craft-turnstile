@@ -2,9 +2,9 @@
 
 # Cloudflare Turnstile
 
-Integrate Cloudflare smart CAPTCHA alternative to validate your forms.
+Integrate Cloudflare smart CAPTCHA alternative to validate your forms. [Learn more on Turnstile docs](https://developers.cloudflare.com/turnstile).
 
-[Learn more on Turnstile docs](https://developers.cloudflare.com/turnstile).
+It also works out of the box with [Sprig](https://github.com/putyourlightson/craft-sprig) requests.
 
 ## Requirements
 
