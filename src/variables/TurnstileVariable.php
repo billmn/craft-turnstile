@@ -2,7 +2,6 @@
 
 namespace billmn\turnstile\variables;
 
-use billmn\turnstile\services\Validator;
 use billmn\turnstile\Turnstile;
 use craft\helpers\ArrayHelper;
 use Twig\Markup;
@@ -26,16 +25,6 @@ class TurnstileVariable
             ->setConfig($config)
             ->setAttributes($attributes)
             ->render();
-    }
-
-    /**
-     * Get validator instance.
-     *
-     * @return Validator
-     */
-    public function getValidator(): Validator
-    {
-        return Turnstile::getInstance()->validator;
     }
 
     /**

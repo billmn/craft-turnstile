@@ -3,5 +3,4 @@
 return [
     'siteKey' => '',
     'secretKey' => '',
-    'protectContactForm' => false,
 ];

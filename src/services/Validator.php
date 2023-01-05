@@ -29,12 +29,13 @@ class Validator extends Component
     /**
      * Call endpoint to validate widget response.
      *
+     * @param string|null $responseField
      * @return \Psr\Http\Message\ResponseInterface
      */
-    protected function sendRequest(): \Psr\Http\Message\ResponseInterface
+    protected function sendRequest(string|null $responseField = null): \Psr\Http\Message\ResponseInterface
     {
         $request = Craft::$app->getRequest();
-        $turnstileResponse = $request->getParam('cf-turnstile-response');
+        $turnstileResponse = $responseField ?: $request->getParam('cf-turnstile-response');
 
         $settings = Turnstile::getInstance()->getSettings();
 
@@ -50,12 +51,13 @@ class Validator extends Component
     /**
      * Verifiy if request is valid.
      *
+     * @param string|null $responseField
      * @return boolean|ConnectException
      */
-    public function verify(): bool|ConnectException
+    public function verify(string|null $responseField = null): bool|ConnectException
     {
         try {
-            $response = $this->sendRequest();
+            $response = $this->sendRequest($responseField);
 
             if ($response->getStatusCode() === 200) {
                 $body = Json::decodeIfJson($response->getBody());

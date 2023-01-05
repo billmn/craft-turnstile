@@ -97,6 +97,7 @@ class Widget extends Component
         return ArrayHelper::merge([
             'async' => true,
             'defer' => true,
+            'position' => Craft::$app->view::POS_HEAD,
         ], $this->config['scriptAttr']);
     }
 
