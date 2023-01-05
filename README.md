@@ -2,9 +2,13 @@
 
 # Cloudflare Turnstile
 
-Integrate Cloudflare smart CAPTCHA alternative to validate your forms. [Learn more on Turnstile docs](https://developers.cloudflare.com/turnstile).
+Easily integrate Turnstile to validate your forms.
 
-It also works out of the box with [Sprig](https://github.com/putyourlightson/craft-sprig) requests.
+Turnstile is Cloudflare's privacy-first, smart CAPTCHA replacement. It automatically chooses from a rotating suite of non-intrusive browser challenges based on telemetry and client behavior exhibited during a session.
+
+The plugin support [Sprig](https://github.com/putyourlightson/craft-sprig) requests out of the box.
+
+If you want to know more about Turnstile, read the official [blog post](https://developers.cloudflare.com/turnstile) or the [documentation](https://blog.cloudflare.com/turnstile-private-captcha-alternative).
 
 ## Requirements
 
@@ -33,7 +37,7 @@ composer require billmn/craft-turnstile
 ./craft plugin/install turnstile
 ```
 
-## Turnstile's Keys
+## Turnstile's keys
 
 You can get site and secret keys following this [instructions](https://developers.cloudflare.com/turnstile/get-started/#get-a-sitekey-and-secret-key).
 
