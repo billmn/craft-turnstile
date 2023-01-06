@@ -4,7 +4,7 @@
 
 Easily integrate Turnstile to validate your forms.
 
-Turnstile is Cloudflare's privacy-first, smart CAPTCHA replacement. It automatically chooses from a rotating suite of non-intrusive browser challenges based on telemetry and client behavior exhibited during a session.
+Turnstile is Cloudflare's **privacy-first**, smart **CAPTCHA replacement**. It automatically chooses from a rotating suite of non-intrusive browser challenges based on telemetry and client behavior exhibited during a session.
 
 The plugin support [Sprig](https://github.com/putyourlightson/craft-sprig) requests out of the box.
 
@@ -39,11 +39,10 @@ composer require billmn/craft-turnstile
 
 ## Turnstile's keys
 
-You can get site and secret keys following this [instructions](https://developers.cloudflare.com/turnstile/get-started/#get-a-sitekey-and-secret-key).
+Insert [site and secret keys](https://developers.cloudflare.com/turnstile/get-started/#get-a-sitekey-and-secret-key) in the plugin settings page, `.env` variables are supported.
 
-After that, insert keys in the plugin settings page (it supports `.env` variables).
-
-You can also create a `turnstile.php` file in the config folder of your project to override the settings specified in control panel:
+### Config file (optional)
+You can create a `turnstile.php` file in the config folder of your project to override the settings specified in control panel:
 ```php
 <?php
 
@@ -87,7 +86,7 @@ If you don't specify the ID, a random one will be created.
 
 ### Script attributes
 
-If you would provide HTML attribute to Cloudflare Turnstile's script, you can use the code as follow:
+If you would provide HTML attributes to Cloudflare Turnstile's script:
 ```twig
 {{ craft.turnstile.widget({
     config: {

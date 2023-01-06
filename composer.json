@@ -1,6 +1,6 @@
 {
     "name": "billmn/craft-turnstile",
-    "description": "Integrate Cloudflare Turnstile captcha alternative to validate your forms.",
+    "description": "Cloudflare Turnstile integration for Craft CMS.",
     "type": "craft-plugin",
     "license": "mit",
     "support": {
