@@ -4,7 +4,7 @@
 
 Easily integrate Turnstile to validate your forms.
 
-Turnstile is Cloudflare's **privacy-first**, smart **CAPTCHA replacement**. It automatically chooses from a rotating suite of non-intrusive browser challenges based on telemetry and client behavior exhibited during a session.
+Turnstile is Cloudflare's **free**, **privacy-first**, smart **CAPTCHA replacement**. It automatically chooses from a rotating suite of non-intrusive browser challenges based on telemetry and client behavior exhibited during a session.
 
 The plugin support [Sprig](https://github.com/putyourlightson/craft-sprig) requests out of the box.
 
