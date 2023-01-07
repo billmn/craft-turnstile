@@ -8,7 +8,7 @@ Turnstile is Cloudflare's **privacy-first**, smart **CAPTCHA replacement**. It a
 
 The plugin support [Sprig](https://github.com/putyourlightson/craft-sprig) requests out of the box.
 
-If you want to know more about Turnstile, read the official [blog post](https://developers.cloudflare.com/turnstile) or the [documentation](https://blog.cloudflare.com/turnstile-private-captcha-alternative).
+If you want to know more about Turnstile, read the announcement [blog post](https://blog.cloudflare.com/turnstile-private-captcha-alternative) or the [official documentation](https://developers.cloudflare.com/turnstile).
 
 ## Requirements
 
