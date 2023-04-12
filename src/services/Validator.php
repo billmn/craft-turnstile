@@ -49,12 +49,12 @@ class Validator extends Component
     }
 
     /**
-     * Verifiy if request is valid.
+     * Verify if request is valid.
      *
      * @param string|null $responseField
-     * @return boolean|ConnectException
+     * @return boolean
      */
-    public function verify(string|null $responseField = null): bool|ConnectException
+    public function verify(string|null $responseField = null): bool
     {
         try {
             $response = $this->sendRequest($responseField);
@@ -79,5 +79,27 @@ class Validator extends Component
         }
 
         return false;
+    }
+
+    /**
+     * Check if verification passes.
+     *
+     * @param mixed ...$args
+     * @return boolean
+     */
+    public function passes(...$args): bool
+    {
+        return $this->verify(...$args);
+    }
+
+    /**
+     * Check if verification fails.
+     *
+     * @param mixed ...$args
+     * @return boolean
+     */
+    public function fails(...$args): bool
+    {
+        return $this->passes(...$args) === false;
     }
 }

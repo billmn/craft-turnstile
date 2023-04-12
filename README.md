@@ -99,23 +99,25 @@ If you would provide HTML attributes to Cloudflare Turnstile's script:
 
 ## Verify form submissions
 
-To validate the Turnstile response, use:
+To validate the Turnstile response, you can use one of this methods:
 ```php
-// returns `true` if passes
-Turnstile::getInstance()->validator->verify();
+Turnstile::getInstance()->validator->verify(); // returns `true` if passes
+Turnstile::getInstance()->validator->passes();
+Turnstile::getInstance()->validator->fails();
 ```
 
-This is an example on how validate a [Contact Form](https://plugins.craftcms.com/contact-form) submission. Add the following code in your project module:
+This is an example on how to flag the message as spam using [Contact Form](https://plugins.craftcms.com/contact-form). Add the following code in your project module:
 ```php
-Event::on(
-    Submission::class,
-    Submission::EVENT_AFTER_VALIDATE, function(Event $e) {
-        /** @var Submission $submission */
-        $submission = $e->sender;
+use billmn\turnstile\Turnstile;
+use craft\contactform\events\SendEvent;
+use craft\contactform\Mailer;
+use yii\base\Event;
 
-        if (! Turnstile::getInstance()->validator->verify()) {
-            $submission->addError('turnstile', __('Please, prove you are human.'));
-        }
+Event::on(
+    Mailer::class,
+    Mailer::EVENT_BEFORE_SEND,
+    function(SendEvent $e) {
+        $e->isSpam = Turnstile::getInstance()->validator->fails();
     }
 );
 ```
@@ -129,7 +131,5 @@ If you use the [`response-field-name`](https://developers.cloudflare.com/turnsti
 ```
 
 ```php
-if (! Turnstile::getInstance()->validator->verify('custom-field')) {
-    // ...
-}
+Turnstile::getInstance()->validator->fails('custom-field');
 ```
