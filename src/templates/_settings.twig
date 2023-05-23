@@ -5,7 +5,7 @@
 
 {{ forms.autosuggestField({
     name: 'siteKey',
-    label: 'Site Key'|t('plugin-handle'),
+    label: 'Site Key'|t('turnstile'),
     value: settings.siteKey,
     errors: settings.getErrors('siteKey'),
     required: true,
@@ -16,7 +16,7 @@
 
 {{ forms.autosuggestField({
     name: 'secretKey',
-    label: 'Secret Key'|t('plugin-handle'),
+    label: 'Secret Key'|t('turnstile'),
     value: settings.secretKey,
     errors: settings.getErrors('secretKey'),
     required: true,

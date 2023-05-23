@@ -1,5 +1,10 @@
 # Release Notes for Cloudflare Turnstile
 
+## 1.0.2 - 2023-05-24
+
+- Brand new icon
+- Fixed label translation handle in settings page
+
 ## 1.0.1 - 2023-04-13
 
 - Added `passes` and `fails` methods

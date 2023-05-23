@@ -26,13 +26,6 @@ class Settings extends Model
     public $secretKey;
 
     /**
-     * Protect Contact Form submissions.
-     *
-     * @var boolean
-     */
-    public $protectContactForm = false;
-
-    /**
      * The parsed site key.
      *
      * @return string
