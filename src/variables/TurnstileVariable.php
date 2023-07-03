@@ -10,9 +10,6 @@ class TurnstileVariable
 {
     /**
      * Render widget.
-     *
-     * @param array $options
-     * @return Markup
      */
     public function getWidget(array $options = []): Markup
     {
@@ -29,13 +26,31 @@ class TurnstileVariable
 
     /**
      * Get site key.
-     *
-     * @return string
      */
     public function getSiteKey(): string
     {
         $settings = Turnstile::getInstance()->getSettings();
 
         return $settings->getSiteKey();
+    }
+
+    /**
+     * Script url.
+     */
+    public function getScriptUrl(): string
+    {
+        $widget = Turnstile::getInstance()->widget;
+
+        return $widget->getScriptUrl();
+    }
+
+    /**
+     * Initialization script.
+     */
+    public function getInitScript(): string
+    {
+        $widget = Turnstile::getInstance()->widget;
+
+        return $widget->getInitScript();
     }
 }
