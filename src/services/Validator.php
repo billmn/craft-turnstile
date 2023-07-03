@@ -15,9 +15,7 @@ use yii\base\Component;
 class Validator extends Component
 {
     /**
-     * Get HTTP Client.
-     *
-     * @return Client
+     * HTTP Client.
      */
     public function getClient(): Client
     {
@@ -28,9 +26,6 @@ class Validator extends Component
 
     /**
      * Call endpoint to validate widget response.
-     *
-     * @param string|null $responseField
-     * @return \Psr\Http\Message\ResponseInterface
      */
     protected function sendRequest(string|null $responseField = null): \Psr\Http\Message\ResponseInterface
     {
@@ -50,9 +45,6 @@ class Validator extends Component
 
     /**
      * Verify if request is valid.
-     *
-     * @param string|null $responseField
-     * @return boolean
      */
     public function verify(string|null $responseField = null): bool
     {
@@ -83,9 +75,6 @@ class Validator extends Component
 
     /**
      * Check if verification passes.
-     *
-     * @param mixed ...$args
-     * @return boolean
      */
     public function passes(...$args): bool
     {
@@ -94,9 +83,6 @@ class Validator extends Component
 
     /**
      * Check if verification fails.
-     *
-     * @param mixed ...$args
-     * @return boolean
      */
     public function fails(...$args): bool
     {
