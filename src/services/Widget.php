@@ -21,8 +21,6 @@ class Widget extends Component
 
     /**
      * Get widget configuration.
-     *
-     * @return array
      */
     public function getConfig(): array
     {
@@ -31,9 +29,6 @@ class Widget extends Component
 
     /**
      * Set widget configuration.
-     *
-     * @param array $config
-     * @return static
      */
     public function setConfig(array $config): static
     {
@@ -46,8 +41,6 @@ class Widget extends Component
 
     /**
      * Get widget attributes.
-     *
-     * @return array
      */
     public function getAttributes(): array
     {
@@ -56,9 +49,6 @@ class Widget extends Component
 
     /**
      * Set widget attributes.
-     *
-     * @param array $attributes
-     * @return static
      */
     public function setAttributes(array $attributes): static
     {
@@ -79,8 +69,6 @@ class Widget extends Component
 
     /**
      * Get Turnstile script url.
-     *
-     * @return string
      */
     public function getScriptUrl(): string
     {
@@ -89,8 +77,6 @@ class Widget extends Component
 
     /**
      * Get Turnstile script attributes.
-     *
-     * @return array
      */
     public function getScriptAttributes(): array
     {
@@ -103,15 +89,16 @@ class Widget extends Component
 
     /**
      * Render widget.
-     *
-     * @return Markup
      */
     public function render(): Markup
     {
         $view = Craft::$app->view;
+        $registerJs = $this->config['registerJs'] ?? true;
 
-        $view->registerJsFile($this->getScriptUrl(), $this->getScriptAttributes());
-        $view->registerJs($this->getInitScript(), $view::POS_END);
+        if ($registerJs) {
+            $view->registerJsFile($this->getScriptUrl(), $this->getScriptAttributes());
+            $view->registerJs($this->getInitScript(), $view::POS_END);
+        }
 
         $template = Craft::$app->getView()->renderTemplate('turnstile/_widget', [
             'attributes' => $this->attributes,
@@ -122,10 +109,8 @@ class Widget extends Component
 
     /**
      * Get Turnstile initialization script.
-     *
-     * @return string
      */
-    protected function getInitScript(): string
+    public function getInitScript(): string
     {
         $settings = Turnstile::getInstance()->getSettings();
 
