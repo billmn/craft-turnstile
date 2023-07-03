@@ -84,19 +84,6 @@ Here an example that provide the element ID attribute and set widget's theme and
 
 If you don't specify the ID, a random one will be created. 
 
-### Script attributes
-
-If you would provide HTML attributes to Cloudflare Turnstile's script:
-```twig
-{{ craft.turnstile.widget({
-    config: {
-        scriptAttr: {
-            nonce: 'nonce'
-        }
-    }
-}) }}
-```
-
 ## Verify form submissions
 
 To validate the Turnstile response, you can use one of this methods:
@@ -132,4 +119,48 @@ If you use the [`response-field-name`](https://developers.cloudflare.com/turnsti
 
 ```php
 Turnstile::getInstance()->validator->fails('custom-field');
+```
+
+## Config
+You can customize the behavior of the widget using the `config` array.
+
+| Option | Default | Description |
+| --- | --- | --- |
+| `registerJs` | `true` | Automatically register scripts
+| `scriptAttr` | `{}` | Script tag HTML attributes
+
+Like this:
+
+```twig
+{{ craft.turnstile.widget({
+    config: {
+        scriptAttr: {
+            nonce: 'nonce'
+        }
+    }
+}) }}
+```
+
+## Methods
+
+| Method | Description |
+| --- | --- |
+| `widget` | Render the widget
+| `siteKey` | Returns Turnstile's site key
+| `scriptUrl` | Returns Turnstile's script url
+| `initScript` | Returns initialization script
+
+For example:
+```twig
+{{ craft.turnstile.widget({
+    config: {
+        registerJs: false,
+    }
+}) }}
+
+<script src="{{ craft.turnstile.scriptUrl }}"></script>
+
+<script>
+    {{ craft.turnstile.initScript|raw }}
+</script>
 ```

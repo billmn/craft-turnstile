@@ -1,5 +1,11 @@
 # Release Notes for Cloudflare Turnstile
 
+## 1.0.3 - 2023-07-03
+
+- Added `registerJs` option to disable automatic js registration
+- Allowed to call `scriptUrl` and `initScript` methods from Twig
+- Prevented javascript error `renderTurnstile is not defined`
+
 ## 1.0.2 - 2023-05-24
 
 - Brand new icon
