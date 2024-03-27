@@ -12,7 +12,7 @@ If you want to know more about Turnstile, read the announcement [blog post](http
 
 ## Requirements
 
-This plugin requires Craft CMS 4.3.5 or later, and PHP 8.0.2 or later.
+This plugin requires Craft CMS 5.0.0 or later.
 
 ## Installation
 
