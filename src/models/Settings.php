@@ -26,6 +26,13 @@ class Settings extends Model
     public $secretKey;
 
     /**
+     * Validate user registrations.
+     *
+     * @var bool
+     */
+    public bool $validateUserRegistrations = false;
+
+    /**
      * The parsed site key.
      *
      * @return string

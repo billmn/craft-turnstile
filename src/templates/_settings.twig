@@ -23,3 +23,12 @@
     instructions: 'Enter Cloudflare Turnstile Secret Key here.',
     suggestEnvVars: true,
 }) }}
+
+{{ forms.lightswitchField({
+    label: 'Validate user registrations'|t('turnstile'),
+    instructions: 'Enable to automatically validate Turnstile when using public user registration.'|t('turnstile'),
+    id: 'validateUserRegistrations',
+    name: 'validateUserRegistrations',
+    on: settings['validateUserRegistrations']
+  })
+}}

@@ -3,4 +3,5 @@
 return [
     'siteKey' => '',
     'secretKey' => '',
+    'validateUserRegistrations' => false,
 ];

@@ -10,8 +10,10 @@ use billmn\turnstile\variables\TurnstileVariable;
 use Craft;
 use craft\base\Model;
 use craft\base\Plugin;
+use craft\elements\User;
 use craft\web\twig\variables\CraftVariable;
 use yii\base\Event;
+use yii\base\ModelEvent;
 
 /**
  * Turnstile plugin
@@ -44,9 +46,9 @@ class Turnstile extends Plugin
     {
         parent::init();
 
-        // Defer most setup tasks until Craft is fully initialized
         Craft::$app->onInit(function() {
             $this->registerTwigVariables();
+            $this->validateUserRegistrations();
         });
     }
 
@@ -72,5 +74,29 @@ class Turnstile extends Plugin
                 $event->sender->set('turnstile', TurnstileVariable::class);
             }
         );
+    }
+
+    protected function validateUserRegistrations(): void
+    {
+        if (Craft::$app->getRequest()->getIsSiteRequest() === false) {
+            return;
+        }
+
+        $settings = $this->getSettings();
+
+        if ($settings->validateUserRegistrations) {
+            Event::on(User::class, User::EVENT_BEFORE_VALIDATE, function(ModelEvent $event) {
+                /** @var User $user */
+                $user = $event->sender;
+
+                // Only validate on new users
+                if ($user->id === null && $user->uid === null) {
+                    if (Turnstile::getInstance()->validator->fails()) {
+                        $user->addError('turnstile', Craft::t('turnstile', 'Please verify you are human.'));
+                        $event->isValid = false;
+                    }
+                }
+            });
+        }
     }
 }
