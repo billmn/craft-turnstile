@@ -26,7 +26,7 @@ class Settings extends Model
     public $secretKey;
 
     /**
-     * Should public user registrations be validated?
+     * Validate user registrations.
      *
      * @var bool
      */

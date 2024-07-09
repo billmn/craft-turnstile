@@ -49,6 +49,7 @@ You can create a `turnstile.php` file in the config folder of your project to ov
 return [
     'siteKey' => '',
     'secretKey' => '',
+    'validateUserRegistrations' => false,
 ];
 ```
 
@@ -121,11 +122,11 @@ If you use the [`response-field-name`](https://developers.cloudflare.com/turnsti
 Turnstile::getInstance()->validator->fails('custom-field');
 ```
 
-### Verifying public user registrations
+### Validate public user registrations
 
-You can also verify Turnstile if you are using Craft's built-in controller action `save-user` (by using `{{ actionInput('users/save-user') }}` or `<input type="hidden" name="action" value="users/save-user">`). This behavior is turned off by default, but can be enabled on the plugin settings page or by setting `validateUserRegistrations` to `true` in the optional config file.
+You can also verify Turnstile if you are using Craft's built-in controller action `save-user` (by using `{{ actionInput('users/save-user') }}`). This behavior is turned off by default, but can be enabled on the plugin settings page or by setting `validateUserRegistrations` to `true` in the optional config file.
 
-## Config
+## Widget configuration
 You can customize the behavior of the widget using the `config` array.
 
 | Option | Default | Description |

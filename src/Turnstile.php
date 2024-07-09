@@ -46,27 +46,9 @@ class Turnstile extends Plugin
     {
         parent::init();
 
-        // Defer most setup tasks until Craft is fully initialized
         Craft::$app->onInit(function() {
             $this->registerTwigVariables();
-
-            // Set up user registration hook.
-            $settings = $this->getSettings();
-            if ($settings->validateUserRegistrations && Craft::$app->getRequest()->getIsSiteRequest()) {
-                Event::on(User::class, User::EVENT_BEFORE_VALIDATE, function (ModelEvent $event) {
-                    /** @var User $user */
-                    $user = $event->sender;
-
-                    // Only validate Turnstile on new users
-                    if ($user->id === null && $user->uid === null) {
-                        $isValid = Turnstile::getInstance()->validator->verify();
-                        if (!$isValid) {
-                            $user->addError('turnstile', 'Please verify you are human.');
-                            $event->isValid = false;
-                        }
-                    }
-                });
-            }
+            $this->validateUserRegistrations();
         });
     }
 
@@ -92,5 +74,29 @@ class Turnstile extends Plugin
                 $event->sender->set('turnstile', TurnstileVariable::class);
             }
         );
+    }
+
+    protected function validateUserRegistrations(): void
+    {
+        if (Craft::$app->getRequest()->getIsSiteRequest() === false) {
+            return;
+        }
+
+        $settings = $this->getSettings();
+
+        if ($settings->validateUserRegistrations) {
+            Event::on(User::class, User::EVENT_BEFORE_VALIDATE, function(ModelEvent $event) {
+                /** @var User $user */
+                $user = $event->sender;
+
+                // Only validate on new users
+                if ($user->id === null && $user->uid === null) {
+                    if (Turnstile::getInstance()->validator->fails()) {
+                        $user->addError('turnstile', Craft::t('turnstile', 'Please verify you are human.'));
+                        $event->isValid = false;
+                    }
+                }
+            });
+        }
     }
 }
