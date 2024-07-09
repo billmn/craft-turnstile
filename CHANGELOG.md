@@ -1,5 +1,9 @@
 # Release Notes for Cloudflare Turnstile
 
+## 1.0.4 - 2024-07-09
+
+- Added support to validate public users registration (thanks [@martijnckx](https://github.com/martijnckx))
+
 ## 1.0.3 - 2023-07-03
 
 - Added `registerJs` option to disable automatic js registration
